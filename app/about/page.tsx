@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FadeInUp } from "@/components/animations/fade-in-up";
 import { StaggerContainer } from "@/components/animations/stagger-container";
 import { ScaleOnScroll } from "@/components/animations/scale-on-scroll";
-import { HoverScaleCard } from "@/components/animations/hover-scale-card";
 
 export const metadata: Metadata = {
   title: "About Us | Social Nexus",
