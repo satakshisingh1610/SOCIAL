@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { Target, Eye, Users, Award, Lightbulb, Heart } from "lucide-react";
+import Link from "next/link";
+import { Target, Eye, Users, Award, Lightbulb, Heart, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Social Nexus",
@@ -66,22 +67,96 @@ export default function AboutPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[80vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Background Animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/25 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "1s"}} />
+          <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-50" style={{animation: "float 8s ease-in-out infinite"}} />
+          
+          {/* Geometric accents */}
+          <div className="absolute top-1/4 right-1/3 w-40 h-40 border border-primary/20 rounded-3xl opacity-30" style={{animation: "rotate 20s linear infinite"}} />
+          <div className="absolute bottom-1/4 left-1/3 w-32 h-32 border border-accent/20 rounded-full opacity-30" style={{animation: "rotate 30s linear infinite reverse"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              About Us
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              We Are Social Nexus
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              A creative digital agency passionate about building memorable brands and driving digital growth. We combine strategy, creativity, and technology to deliver exceptional results.
-            </p>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+          }
+          @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Our Story</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                We Are
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  Social Nexus
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                A creative digital agency passionate about building memorable brands and driving digital growth. We combine strategy, creativity, and technology to deliver exceptional results.
+              </p>
+
+              <p className="text-sm md:text-base text-muted-foreground italic">
+                Built for brands that want to lead digitally
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/25 hover:scale-105 transition-all duration-300 font-medium group">
+                  Explore Our Services
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Visual Element */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md aspect-square">
+                {/* Floating cards representing team/collaboration */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Central circle */}
+                  <div className="absolute w-48 h-48 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-2xl" />
+                  
+                  {/* Card 1 - Top */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-40 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl shadow-lg border border-primary/20 hover:scale-110 transition-transform duration-300 hover:shadow-xl p-4 flex flex-col items-center justify-center gap-3" style={{animation: "float 4s ease-in-out infinite"}}>
+                    <div className="w-10 h-10 bg-primary/40 rounded-lg" />
+                    <span className="text-xs font-semibold text-foreground text-center">Strategy</span>
+                  </div>
+
+                  {/* Card 2 - Left */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 h-40 bg-gradient-to-br from-accent/30 to-accent/10 rounded-2xl shadow-lg border border-accent/20 hover:scale-110 transition-transform duration-300 hover:shadow-xl p-4 flex flex-col items-center justify-center gap-3" style={{animation: "float 5s ease-in-out infinite", animationDelay: "0.5s"}}>
+                    <div className="w-10 h-10 bg-accent/40 rounded-lg" />
+                    <span className="text-xs font-semibold text-foreground text-center">Creativity</span>
+                  </div>
+
+                  {/* Card 3 - Right */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-32 h-40 bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl shadow-lg border border-secondary/20 hover:scale-110 transition-transform duration-300 hover:shadow-xl p-4 flex flex-col items-center justify-center gap-3" style={{animation: "float 6s ease-in-out infinite", animationDelay: "1s"}}>
+                    <div className="w-10 h-10 bg-secondary/40 rounded-lg" />
+                    <span className="text-xs font-semibold text-foreground text-center">Technology</span>
+                  </div>
+
+                  {/* Card 4 - Bottom */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-40 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl shadow-lg border border-primary/20 hover:scale-110 transition-transform duration-300 hover:shadow-xl p-4 flex flex-col items-center justify-center gap-3" style={{animation: "float 7s ease-in-out infinite", animationDelay: "1.5s"}}>
+                    <div className="w-10 h-10 bg-primary/30 rounded-lg" />
+                    <span className="text-xs font-semibold text-foreground text-center">Growth</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -126,22 +126,118 @@ export default function ServicesPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-32 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[85vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-32 right-10 w-80 h-80 bg-primary/25 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 left-10 w-96 h-96 bg-accent/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: "0.5s"}} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-3xl opacity-40" style={{animation: "float 10s ease-in-out infinite"}} />
+          
+          {/* Service icons scattered in background */}
+          <div className="absolute top-1/4 left-1/4 w-24 h-24 border-2 border-primary/20 rounded-lg opacity-20" style={{animation: "rotate 15s linear infinite"}} />
+          <div className="absolute bottom-1/3 right-1/4 w-32 h-32 border-2 border-accent/20 rounded-full opacity-20" style={{animation: "rotate 20s linear infinite reverse"}} />
+          <div className="absolute top-1/3 right-1/3 w-20 h-20 border-2 border-secondary/20 rounded-full opacity-20" style={{animation: "rotate 25s linear infinite"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Our Services
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Comprehensive Digital Solutions
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              From brand strategy to execution, we offer end-to-end digital services designed to help your business grow and thrive in the digital landscape.
-            </p>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-40px); }
+          }
+          @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Capabilities & Power</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
+                  Build
+                </span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60">
+                  Scale
+                </span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
+                  Dominate
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                From brand strategy to execution, we offer end-to-end digital services designed to help your business grow exponentially in the digital landscape.
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4">
+                <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 hover:bg-primary/15 hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="text-2xl font-bold text-primary mb-1">6</div>
+                  <p className="text-xs text-muted-foreground">Services</p>
+                </div>
+                <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 hover:bg-accent/15 hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="text-2xl font-bold text-accent mb-1">100%</div>
+                  <p className="text-xs text-muted-foreground">Custom</p>
+                </div>
+                <div className="bg-secondary/10 border border-secondary/20 rounded-lg p-4 hover:bg-secondary/15 hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="text-2xl font-bold text-foreground mb-1">24/7</div>
+                  <p className="text-xs text-muted-foreground">Support</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Floating Service Cards */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md aspect-square">
+                {/* Central glow */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-3xl" />
+                </div>
+
+                {/* Service Cards in circular arrangement */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 bg-gradient-to-br from-primary/40 to-primary/20 rounded-2xl shadow-lg border border-primary/30 flex items-center justify-center hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 3s ease-in-out infinite"}}>
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">🎨</div>
+                    <p className="text-xs font-semibold text-foreground">Brand</p>
+                  </div>
+                </div>
+
+                <div className="absolute left-0 top-1/3 w-28 h-28 bg-gradient-to-br from-accent/40 to-accent/20 rounded-2xl shadow-lg border border-accent/30 flex items-center justify-center hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 3.5s ease-in-out infinite", animationDelay: "0.3s"}}>
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📱</div>
+                    <p className="text-xs font-semibold text-foreground">Social</p>
+                  </div>
+                </div>
+
+                <div className="absolute right-0 top-1/3 w-28 h-28 bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl shadow-lg border border-secondary/30 flex items-center justify-center hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 4s ease-in-out infinite", animationDelay: "0.6s"}}>
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">🌐</div>
+                    <p className="text-xs font-semibold text-foreground">Web</p>
+                  </div>
+                </div>
+
+                <div className="absolute left-1/4 bottom-0 w-28 h-28 bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl shadow-lg border border-primary/30 flex items-center justify-center hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 4.5s ease-in-out infinite", animationDelay: "0.9s"}}>
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">📊</div>
+                    <p className="text-xs font-semibold text-foreground">Growth</p>
+                  </div>
+                </div>
+
+                <div className="absolute right-1/4 bottom-0 w-28 h-28 bg-gradient-to-br from-accent/30 to-primary/30 rounded-2xl shadow-lg border border-accent/30 flex items-center justify-center hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 5s ease-in-out infinite", animationDelay: "1.2s"}}>
+                  <div className="text-center">
+                    <div className="text-2xl mb-1">🎬</div>
+                    <p className="text-xs font-semibold text-foreground">Content</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

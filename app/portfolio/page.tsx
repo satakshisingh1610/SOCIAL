@@ -90,22 +90,114 @@ export default function PortfolioPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[85vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: "0.7s"}} />
+          <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-40" style={{animation: "float 12s ease-in-out infinite"}} />
+          
+          {/* Mockup elements scattered */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-primary/20 rounded-xl opacity-20" style={{animation: "rotate 20s linear infinite"}} />
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 border-2 border-accent/20 rounded-lg opacity-20" style={{animation: "rotate 25s linear infinite reverse"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Our Work
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Portfolio & Case Studies
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Explore our latest projects and see how we&apos;ve helped brands transform their digital presence and achieve remarkable results.
-            </p>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-40px); }
+          }
+          @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Proof & Impact</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                Real Results
+                <br />
+                Real
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
+                  Brands
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                Explore our portfolio of successful projects. See how we&apos;ve helped brands transform their digital presence and achieve remarkable results.
+              </p>
+
+              <div className="inline-block">
+                <div className="bg-primary/10 border border-primary/20 rounded-full px-6 py-3 hover:bg-primary/15 hover:scale-105 transition-all duration-300">
+                  <p className="text-sm font-medium text-foreground">Discover Our Impact</p>
+                </div>
+              </div>
+
+              {/* Achievement Stats */}
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-border/50">
+                <div className="hover:scale-110 transition-transform duration-300">
+                  <p className="text-3xl font-bold text-primary">8+</p>
+                  <p className="text-xs text-muted-foreground">Featured Projects</p>
+                </div>
+                <div className="hover:scale-110 transition-transform duration-300">
+                  <p className="text-3xl font-bold text-accent">5</p>
+                  <p className="text-xs text-muted-foreground">Categories</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Mockup Preview */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md">
+                {/* Main preview card */}
+                <div className="relative w-full aspect-video bg-gradient-to-br from-card to-card/50 rounded-3xl shadow-2xl border border-border overflow-hidden group hover:shadow-3xl transition-shadow duration-500">
+                  {/* Screen content mockup */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+                  
+                  {/* Browser window styling */}
+                  <div className="absolute top-4 left-6 right-6 flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80 group-hover:bg-red-500 transition-colors" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80 group-hover:bg-yellow-500 transition-colors" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80 group-hover:bg-green-500 transition-colors" />
+                  </div>
+
+                  {/* Content preview */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center pt-12 pb-6 px-6">
+                    <div className="w-full space-y-4">
+                      <div className="h-4 bg-primary/20 rounded-full w-2/3 mx-auto group-hover:w-3/4 transition-all" />
+                      <div className="h-3 bg-primary/15 rounded-full w-1/2 mx-auto group-hover:w-3/5 transition-all" style={{transitionDelay: "100ms"}} />
+                      <div className="h-24 bg-gradient-to-br from-primary/20 to-accent/10 rounded-xl mt-6 group-hover:scale-105 transition-transform" style={{transitionDelay: "200ms"}} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating badges */}
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-primary to-primary/80 rounded-2xl shadow-xl p-6 max-w-xs hover:scale-110 transition-transform duration-300 group/badge">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                      <span className="text-sm font-bold text-white">✓</span>
+                    </div>
+                    <span className="font-semibold text-primary-foreground">Award Winning</span>
+                  </div>
+                  <p className="text-xs text-primary-foreground/90">Recognized for excellence</p>
+                </div>
+
+                {/* Secondary badge */}
+                <div className="absolute -top-4 -left-4 bg-gradient-to-br from-accent to-accent/80 rounded-2xl shadow-lg px-4 py-3 hover:scale-110 transition-transform duration-300">
+                  <p className="text-sm font-bold text-accent-foreground">+200%</p>
+                  <p className="text-xs text-accent-foreground/90">Avg Growth</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

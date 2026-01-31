@@ -102,22 +102,146 @@ export default function ProcessPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[85vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Tech-inspired Grid Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "1s"}} />
+          
+          {/* Grid pattern */}
+          <svg className="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+
+          {/* Animated flow lines */}
+          <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" style={{animation: "flow 4s ease-in-out infinite"}} />
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent" style={{animation: "flow 5s ease-in-out infinite", animationDirection: "reverse"}} />
+          <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary/30 to-transparent" style={{animation: "flow 6s ease-in-out infinite"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              How We Work
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Our Proven Process
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              A systematic approach that ensures every project delivers exceptional results. From discovery to growth, we guide you through every step.
-            </p>
+
+        <style>{`
+          @keyframes flow {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text Content */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Clarity & System</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                Our
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  Proven Process
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                A structured approach to scalable digital growth. From discovery to optimization, we guide you through every step with clarity and precision.
+              </p>
+
+              <div className="space-y-4 pt-6">
+                <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300 cursor-pointer">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                    <span className="text-lg font-bold text-primary">1</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Discovery</h3>
+                    <p className="text-sm text-muted-foreground">Understanding your vision</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300 cursor-pointer">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/20 border border-accent/30 flex items-center justify-center">
+                    <span className="text-lg font-bold text-accent">2</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Strategy</h3>
+                    <p className="text-sm text-muted-foreground">Building the roadmap</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300 cursor-pointer">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+                    <span className="text-lg font-bold text-foreground">3</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Execution</h3>
+                    <p className="text-sm text-muted-foreground">Bringing ideas to life</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Visual Flow Diagram */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md">
+                {/* Central pipeline */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-secondary/50 -translate-x-1/2 rounded-full" style={{opacity: 0.3}} />
+
+                {/* Step nodes */}
+                <div className="space-y-12">
+                  {/* Step 1 */}
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/40 to-primary/20 border-2 border-primary/40 flex items-center justify-center text-center group hover:scale-110 transition-transform duration-300 hover:shadow-lg">
+                      <div>
+                        <p className="text-2xl font-bold text-primary">01</p>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-foreground">Discovery</h3>
+                      <p className="text-sm text-muted-foreground">Deep dive into your business</p>
+                    </div>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="flex justify-center">
+                    <div className="text-3xl text-primary/50 animate-bounce">↓</div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/40 to-accent/20 border-2 border-accent/40 flex items-center justify-center text-center group hover:scale-110 transition-transform duration-300 hover:shadow-lg">
+                      <div>
+                        <p className="text-2xl font-bold text-accent">02</p>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-foreground">Planning</h3>
+                      <p className="text-sm text-muted-foreground">Strategic roadmap creation</p>
+                    </div>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="flex justify-center">
+                    <div className="text-3xl text-accent/50 animate-bounce" style={{animationDelay: "0.2s"}}>↓</div>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary to-secondary/50 border-2 border-secondary/50 flex items-center justify-center text-center group hover:scale-110 transition-transform duration-300 hover:shadow-lg">
+                      <div>
+                        <p className="text-2xl font-bold text-foreground">03</p>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-foreground">Growth</h3>
+                      <p className="text-sm text-muted-foreground">Optimization & scaling</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

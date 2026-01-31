@@ -114,22 +114,103 @@ export default function BlogPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[85vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Editorial Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "1s"}} />
+          
+          {/* Floating article cards background */}
+          <div className="absolute top-1/3 right-1/4 w-48 h-32 border-2 border-primary/15 rounded-xl opacity-30" style={{animation: "float 6s ease-in-out infinite"}} />
+          <div className="absolute bottom-1/3 left-1/4 w-40 h-24 border-2 border-accent/15 rounded-lg opacity-30" style={{animation: "float 7s ease-in-out infinite", animationDelay: "0.5s"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Blog & Insights
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Ideas That Inspire Growth
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Insights, strategies, and stories from our team of digital experts to help you stay ahead in the ever-evolving digital landscape.
-            </p>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateZ(-2deg); }
+            50% { transform: translateY(-30px) rotateZ(2deg); }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Thought Leadership</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  Digital Insights
+                </span>
+                <br />
+                & Trends
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                Insights that help brands grow smarter. Expert perspectives on digital marketing, branding strategies, social media, and growth hacks.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 border border-primary/20 rounded-full hover:bg-primary/15 hover:scale-105 transition-all duration-300 group cursor-pointer">
+                  <span className="text-sm font-medium text-foreground">Latest Articles</span>
+                  <span className="text-primary group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="flex gap-8 pt-6 border-t border-border/50">
+                <div className="hover:scale-110 transition-transform duration-300">
+                  <p className="text-2xl sm:text-3xl font-bold text-primary">50+</p>
+                  <p className="text-xs text-muted-foreground">Articles Published</p>
+                </div>
+                <div className="hover:scale-110 transition-transform duration-300">
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">8</p>
+                  <p className="text-xs text-muted-foreground">Expert Authors</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Floating Article Cards */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md aspect-square">
+                {/* Central glow */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-40 h-40 bg-gradient-to-br from-primary/25 to-accent/15 rounded-full blur-3xl" />
+                </div>
+
+                {/* Floating article cards */}
+                {/* Card 1 */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 bg-gradient-to-br from-primary/30 to-primary/15 rounded-2xl shadow-lg border border-primary/30 p-4 hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 4s ease-in-out infinite"}}>
+                  <div className="w-full h-20 bg-primary/20 rounded-lg mb-3" />
+                  <p className="text-xs font-semibold text-foreground mb-1">Digital Marketing</p>
+                  <p className="text-xs text-muted-foreground line-clamp-2">Future trends in 2024</p>
+                </div>
+
+                {/* Card 2 */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-40 bg-gradient-to-br from-accent/30 to-accent/15 rounded-2xl shadow-lg border border-accent/30 p-4 hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 5s ease-in-out infinite", animationDelay: "0.5s"}}>
+                  <div className="w-full h-20 bg-accent/20 rounded-lg mb-3" />
+                  <p className="text-xs font-semibold text-foreground mb-1">Branding</p>
+                  <p className="text-xs text-muted-foreground line-clamp-2">Building identity that resonates</p>
+                </div>
+
+                {/* Card 3 */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-40 bg-gradient-to-br from-secondary to-secondary/50 rounded-2xl shadow-lg border border-secondary/30 p-4 hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 6s ease-in-out infinite", animationDelay: "1s"}}>
+                  <div className="w-full h-20 bg-secondary/30 rounded-lg mb-3" />
+                  <p className="text-xs font-semibold text-foreground mb-1">Growth Hacks</p>
+                  <p className="text-xs text-muted-foreground line-clamp-2">Strategies that work</p>
+                </div>
+
+                {/* Card 4 */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl shadow-lg border border-primary/30 p-4 hover:scale-110 hover:shadow-xl transition-all duration-300" style={{animation: "float 7s ease-in-out infinite", animationDelay: "1.5s"}}>
+                  <div className="w-full h-20 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg mb-3" />
+                  <p className="text-xs font-semibold text-foreground mb-1">Social Media</p>
+                  <p className="text-xs text-muted-foreground line-clamp-2">Community building tips</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

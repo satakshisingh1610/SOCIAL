@@ -78,22 +78,114 @@ export default function ContactPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[85vh] flex items-center py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/25 to-primary/15 overflow-hidden">
+        {/* Warm Gradient Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: "0.8s"}} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/15 rounded-full blur-3xl opacity-50" style={{animation: "float 14s ease-in-out infinite"}} />
+          
+          {/* Soft glow elements */}
+          <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl opacity-40" style={{animation: "float 10s ease-in-out infinite", animationDelay: "1s"}} />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Contact Us
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Let&apos;s Start a Conversation
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Have a project in mind? We&apos;d love to hear from you. Reach out and let&apos;s discuss how we can help your brand grow.
-            </p>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+          }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <div className="text-center lg:text-left space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 border border-primary/30 rounded-full hover:bg-primary/20 transition-colors">
+                <span className="inline-block w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Connection & Action</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
+                Let&apos;s
+                <br />
+                Start a
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  Conversation
+                </span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                Have a project in mind? We&apos;d love to hear from you. Reach out and let&apos;s discuss how we can help your brand grow and thrive.
+              </p>
+
+              {/* Quick Contact Options */}
+              <div className="space-y-3 pt-4">
+                <a href="tel:+919876543210" className="flex items-center gap-3 px-6 py-3 bg-primary/10 border border-primary/20 rounded-full hover:bg-primary/15 hover:scale-105 transition-all duration-300 group cursor-pointer w-fit">
+                  <span className="text-lg">📞</span>
+                  <span className="text-sm font-medium text-foreground">+91 98765 43210</span>
+                  <span className="text-primary group-hover:translate-x-1 transition-transform text-xs">→</span>
+                </a>
+                <a href="mailto:hello@socialnexus.com" className="flex items-center gap-3 px-6 py-3 bg-accent/10 border border-accent/20 rounded-full hover:bg-accent/15 hover:scale-105 transition-all duration-300 group cursor-pointer w-fit">
+                  <span className="text-lg">✉️</span>
+                  <span className="text-sm font-medium text-foreground">hello@socialnexus.com</span>
+                  <span className="text-accent group-hover:translate-x-1 transition-transform text-xs">→</span>
+                </a>
+              </div>
+
+              {/* Response Time Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full">
+                <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-xs text-foreground">We typically respond within 24 hours</span>
+              </div>
+            </div>
+
+            {/* Right - Visual Element */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="relative w-full max-w-md">
+                {/* Central circle glow */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-52 h-52 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-3xl" />
+                </div>
+
+                {/* Main contact illustration area */}
+                <div className="relative space-y-6">
+                  {/* Message bubble 1 */}
+                  <div className="ml-auto w-32 p-4 bg-gradient-to-br from-primary/25 to-primary/10 rounded-3xl rounded-tr-none shadow-lg hover:scale-105 transition-transform duration-300 border border-primary/20" style={{animation: "slideIn 0.6s ease-out"}}>
+                    <div className="text-center">
+                      <p className="text-2xl mb-1">🎯</p>
+                      <p className="text-xs font-semibold text-foreground">Your Vision</p>
+                    </div>
+                  </div>
+
+                  {/* Message bubble 2 */}
+                  <div className="w-32 p-4 bg-gradient-to-br from-accent/25 to-accent/10 rounded-3xl rounded-tl-none shadow-lg hover:scale-105 transition-transform duration-300 border border-accent/20" style={{animation: "slideIn 0.8s ease-out"}}>
+                    <div className="text-center">
+                      <p className="text-2xl mb-1">💡</p>
+                      <p className="text-xs font-semibold text-foreground">Our Ideas</p>
+                    </div>
+                  </div>
+
+                  {/* Message bubble 3 */}
+                  <div className="ml-auto w-32 p-4 bg-gradient-to-br from-secondary to-secondary/50 rounded-3xl rounded-tr-none shadow-lg hover:scale-105 transition-transform duration-300 border border-secondary/30" style={{animation: "slideIn 1s ease-out"}}>
+                    <div className="text-center">
+                      <p className="text-2xl mb-1">🚀</p>
+                      <p className="text-xs font-semibold text-foreground">Success</p>
+                    </div>
+                  </div>
+
+                  {/* CTA Button with pulse animation */}
+                  <div className="pt-4 flex justify-center">
+                    <button className="px-8 py-3 bg-gradient-to-r from-primary to-accent rounded-full text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group" style={{animation: "pulse 2s ease-in-out infinite"}}>
+                      <span className="flex items-center gap-2">
+                        Send Message
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
