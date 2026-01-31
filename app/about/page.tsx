@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Target, Eye, Users, Award, Lightbulb, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeInUp } from "@/components/animations/fade-in-up";
-import { StaggerContainer } from "@/components/animations/stagger-container";
 import { ScaleOnScroll } from "@/components/animations/scale-on-scroll";
 
 export const metadata: Metadata = {
@@ -192,31 +191,29 @@ export default function AboutPage() {
               </h2>
             </FadeInUp>
           </div>
-          <StaggerContainer staggerDelay={0.1} delayChildren={0.2}>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                  viewport={{ once: true }}
-                  className="bg-background rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary/50 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
-                    <value.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </StaggerContainer>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-background rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary/50 transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+                  <value.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -16,7 +16,6 @@ import {
 import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeInUp } from "@/components/animations/fade-in-up";
-import { StaggerContainer } from "@/components/animations/stagger-container";
 
 const services = [
   "Brand Identity & Design",
@@ -320,36 +319,34 @@ export default function ContactPage() {
                   Get in Touch
                 </h2>
 
-                <StaggerContainer staggerDelay={0.1} delayChildren={0.1}>
-                  <div className="space-y-6 mb-12">
-                    {contactInfo.map((item, index) => (
-                      <motion.div
-                        key={item.title}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        whileHover={{ y: -2 }}
-                        className="flex gap-4 p-4 bg-card rounded-2xl border border-border hover:shadow-md hover:border-primary/50 transition-all"
+                <div className="space-y-6 mb-12">
+                  {contactInfo.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -2 }}
+                      className="flex gap-4 p-4 bg-card rounded-2xl border border-border hover:shadow-md hover:border-primary/50 transition-all"
+                    >
+                      <motion.div 
+                        className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center shrink-0"
+                        whileHover={{ scale: 1.1 }}
                       >
-                        <motion.div 
-                          className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center shrink-0"
-                          whileHover={{ scale: 1.1 }}
-                        >
-                          <item.icon className="w-6 h-6 text-primary" />
-                        </motion.div>
-                        <div>
-                          <h3 className="font-semibold text-foreground mb-1">
-                            {item.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm whitespace-pre-line">
-                            {item.content}
-                          </p>
-                        </div>
+                        <item.icon className="w-6 h-6 text-primary" />
                       </motion.div>
-                    ))}
-                  </div>
-                </StaggerContainer>
+                      <div>
+                        <h3 className="font-semibold text-foreground mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm whitespace-pre-line">
+                          {item.content}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
 
                 {/* Social Links */}
                 <motion.div
@@ -431,45 +428,43 @@ export default function ContactPage() {
             </FadeInUp>
           </div>
 
-          <StaggerContainer staggerDelay={0.1} delayChildren={0.1}>
-            <div className="space-y-4">
-              {[
-                {
-                  q: "What is your typical project timeline?",
-                  a: "Project timelines vary based on scope and complexity. A typical branding project takes 4-6 weeks, while website development can take 6-12 weeks. We'll provide a detailed timeline during our initial consultation.",
-                },
-                {
-                  q: "Do you work with startups or only established businesses?",
-                  a: "We work with businesses of all sizes, from early-stage startups to established enterprises. We tailor our approach and packages to fit different budgets and needs.",
-                },
-                {
-                  q: "What is your pricing structure?",
-                  a: "Our pricing is project-based and depends on scope, deliverables, and timeline. We offer custom quotes after understanding your specific requirements during our discovery call.",
-                },
-                {
-                  q: "Do you offer ongoing support after project completion?",
-                  a: "Yes! We offer ongoing support and maintenance packages to ensure your digital assets continue to perform optimally. We also offer retainer agreements for continuous marketing support.",
-                },
-              ].map((faq, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -2 }}
-                  className="bg-background rounded-2xl border border-border p-6 hover:shadow-md hover:border-primary/50 transition-all"
-                >
-                  <h3 className="font-semibold text-foreground mb-2">
-                    {faq.q}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {faq.a}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </StaggerContainer>
+          <div className="space-y-4">
+            {[
+              {
+                q: "What is your typical project timeline?",
+                a: "Project timelines vary based on scope and complexity. A typical branding project takes 4-6 weeks, while website development can take 6-12 weeks. We'll provide a detailed timeline during our initial consultation.",
+              },
+              {
+                q: "Do you work with startups or only established businesses?",
+                a: "We work with businesses of all sizes, from early-stage startups to established enterprises. We tailor our approach and packages to fit different budgets and needs.",
+              },
+              {
+                q: "What is your pricing structure?",
+                a: "Our pricing is project-based and depends on scope, deliverables, and timeline. We offer custom quotes after understanding your specific requirements during our discovery call.",
+              },
+              {
+                q: "Do you offer ongoing support after project completion?",
+                a: "Yes! We offer ongoing support and maintenance packages to ensure your digital assets continue to perform optimally. We also offer retainer agreements for continuous marketing support.",
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -2 }}
+                className="bg-background rounded-2xl border border-border p-6 hover:shadow-md hover:border-primary/50 transition-all"
+              >
+                <h3 className="font-semibold text-foreground mb-2">
+                  {faq.q}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

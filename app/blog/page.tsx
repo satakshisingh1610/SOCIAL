@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Clock, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeInUp } from "@/components/animations/fade-in-up";
-import { StaggerContainer } from "@/components/animations/stagger-container";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Social Nexus",
@@ -227,58 +226,56 @@ export default function BlogPage() {
       {/* Posts Grid */}
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer staggerDelay={0.1} delayChildren={0.1}>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post, index) => (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+              >
+                <Link
+                  href={`/blog/${post.id}`}
+                  className="group bg-background rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                 >
-                  <Link
-                    href={`/blog/${post.id}`}
-                    className="group bg-background rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
-                  >
-                    <motion.div 
-                      className={`h-48 bg-gradient-to-br ${post.color}`}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ originY: 0 }}
-                    />
-                    <div className="p-6 flex-1 flex flex-col">
-                      <motion.span 
-                        className="inline-block px-3 py-1 bg-secondary rounded-full text-xs font-medium text-foreground mb-3 w-fit"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {post.category}
-                      </motion.span>
-                      <motion.h3 
-                        className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
-                        whileHover={{ x: 4 }}
-                      >
-                        {post.title}
-                      </motion.h3>
-                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-4">
-                        <div className="flex items-center gap-2">
-                          <User className="w-3 h-3" />
-                          <span>{post.author}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-3 h-3" />
-                          <span>{post.readTime}</span>
-                        </div>
+                  <motion.div 
+                    className={`h-48 bg-gradient-to-br ${post.color}`}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ originY: 0 }}
+                  />
+                  <div className="p-6 flex-1 flex flex-col">
+                    <motion.span 
+                      className="inline-block px-3 py-1 bg-secondary rounded-full text-xs font-medium text-foreground mb-3 w-fit"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {post.category}
+                    </motion.span>
+                    <motion.h3 
+                      className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
+                      whileHover={{ x: 4 }}
+                    >
+                      {post.title}
+                    </motion.h3>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-4">
+                      <div className="flex items-center gap-2">
+                        <User className="w-3 h-3" />
+                        <span>{post.author}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-3 h-3" />
+                        <span>{post.readTime}</span>
                       </div>
                     </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </StaggerContainer>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Load More */}
           <div className="text-center mt-12">
