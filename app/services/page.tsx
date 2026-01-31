@@ -11,9 +11,6 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
-import { motion } from "framer-motion";
-import { FadeInUp } from "@/components/animations/fade-in-up";
-import { StaggerContainer } from "@/components/animations/stagger-container";
 
 export const metadata: Metadata = {
   title: "Services | Social Nexus",
@@ -136,21 +133,15 @@ export default function ServicesPage() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <FadeInUp>
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                Our Services
-              </p>
-            </FadeInUp>
-            <FadeInUp delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-                Comprehensive Digital Solutions
-              </h1>
-            </FadeInUp>
-            <FadeInUp delay={0.2}>
-              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                From brand strategy to execution, we offer end-to-end digital services designed to help your business grow and thrive in the digital landscape.
-              </p>
-            </FadeInUp>
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+              Our Services
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+              Comprehensive Digital Solutions
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              From brand strategy to execution, we offer end-to-end digital services designed to help your business grow and thrive in the digital landscape.
+            </p>
           </div>
         </div>
       </section>
@@ -160,99 +151,68 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-24">
             {services.map((service, index) => (
-              <motion.div
+              <div
                 key={service.id}
                 id={service.id}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-100px" }}
                 className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Content */}
-                <FadeInUp delay={index * 0.1}>
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <motion.div 
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className={`w-16 h-16 ${service.iconColor} rounded-2xl flex items-center justify-center mb-6 transition-all duration-300`}
-                    >
-                      <service.icon className="w-8 h-8" />
-                    </motion.div>
-                    <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
-                      {service.subtitle}
-                    </p>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      {service.description}
-                    </p>
-                    <ul className="grid sm:grid-cols-2 gap-3 mb-8">
-                      {service.features.map((feature, fIndex) => (
-                        <motion.li 
-                          key={feature} 
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: (index * 0.1) + (fIndex * 0.05) }}
-                          viewport={{ once: true }}
-                          className="flex items-center gap-3"
-                        >
-                          <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-accent" />
-                          </div>
-                          <span className="text-sm text-foreground">{feature}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button
-                        asChild
-                        className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
-                      >
-                        <Link href="/contact">
-                          Get Started
-                          <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
-                    </motion.div>
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div
+                    className={`w-16 h-16 ${service.iconColor} rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 hover:scale-110`}
+                  >
+                    <service.icon className="w-8 h-8" />
                   </div>
-                </FadeInUp>
+                  <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
+                    {service.subtitle}
+                  </p>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                    {service.title}
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+                  <ul className="grid sm:grid-cols-2 gap-3 mb-8">
+                    {service.features.map((feature) => (
+                      <li 
+                        key={feature} 
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                          <Check className="w-3 h-3 text-accent" />
+                        </div>
+                        <span className="text-sm text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="hover:scale-105 transition-transform duration-300 inline-block">
+                    <Button
+                      asChild
+                      className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
+                    >
+                      <Link href="/contact">
+                        Get Started
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
 
                 {/* Visual */}
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  className={index % 2 === 1 ? "lg:order-1" : ""}
+                <div
+                  className={`transition-all duration-300 hover:scale-105 ${index % 2 === 1 ? "lg:order-1" : ""}`}
                 >
                   <div className={`aspect-square rounded-3xl bg-gradient-to-br ${service.color} p-8 relative overflow-hidden group`}>
                     <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center group-hover:shadow-2xl transition-all duration-300">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        className="relative"
-                      >
-                        <service.icon className="w-24 h-24 text-primary/30" />
-                      </motion.div>
+                      <service.icon className="w-24 h-24 text-primary/30" />
                     </div>
-                    {/* Animated Decorative elements */}
-                    <motion.div 
-                      animate={{ x: [0, 10, 0], y: [0, 10, 0] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute top-4 right-4 w-16 h-16 bg-accent/30 rounded-full blur-xl" 
-                    />
-                    <motion.div 
-                      animate={{ x: [0, -10, 0], y: [0, -10, 0] }}
-                      transition={{ duration: 5, repeat: Infinity }}
-                      className="absolute bottom-4 left-4 w-24 h-24 bg-primary/30 rounded-full blur-xl" 
-                    />
+                    <div className="absolute top-4 right-4 w-16 h-16 bg-accent/30 rounded-full blur-xl" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 bg-primary/30 rounded-full blur-xl" />
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -261,42 +221,28 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-20 lg:py-32 bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-primary-foreground/20 rounded-full"
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-primary-foreground/20 rounded-full"
-          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-primary-foreground/20 rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-primary-foreground/20 rounded-full" />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <FadeInUp>
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
-              Ready to Transform Your Digital Presence?
-            </h2>
-          </FadeInUp>
-          <FadeInUp delay={0.1}>
-            <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how our services can help you achieve your business goals. Get in touch for a free consultation.
-            </p>
-          </FadeInUp>
-          <FadeInUp delay={0.2}>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 rounded-full"
-              >
-                <Link href="/contact">
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-            </motion.div>
-          </FadeInUp>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
+            Ready to Transform Your Digital Presence?
+          </h2>
+          <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss how our services can help you achieve your business goals. Get in touch for a free consultation.
+          </p>
+          <div className="hover:scale-105 transition-transform duration-300 inline-block">
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 rounded-full"
+            >
+              <Link href="/contact">
+                Schedule a Consultation
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>
