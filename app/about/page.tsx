@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import { Target, Eye, Users, Award, Lightbulb, Heart } from "lucide-react";
-import { FadeInUp } from "@/components/animations/fade-in-up";
-import { ScaleOnScroll } from "@/components/animations/scale-on-scroll";
 
 export const metadata: Metadata = {
   title: "About Us | Social Nexus",
@@ -75,21 +73,15 @@ export default function AboutPage() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <FadeInUp>
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                About Us
-              </p>
-            </FadeInUp>
-            <FadeInUp delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-                We Are Social Nexus
-              </h1>
-            </FadeInUp>
-            <FadeInUp delay={0.2}>
-              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                A creative digital agency passionate about building memorable brands and driving digital growth. We combine strategy, creativity, and technology to deliver exceptional results.
-              </p>
-            </FadeInUp>
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+              About Us
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+              We Are Social Nexus
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              A creative digital agency passionate about building memorable brands and driving digital growth. We combine strategy, creativity, and technology to deliver exceptional results.
+            </p>
           </div>
         </div>
       </section>
@@ -98,43 +90,39 @@ export default function AboutPage() {
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <FadeInUp>
-              <div>
-                <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
-                  Our Story
+            <div>
+              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
+                Our Story
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+                Who We Are
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Social Nexus is a full-service digital media and branding agency dedicated to helping businesses thrive in the digital landscape. We believe that every brand has a unique story to tell, and our mission is to help you tell it in the most compelling way possible.
                 </p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                  Who We Are
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    Social Nexus is a full-service digital media and branding agency dedicated to helping businesses thrive in the digital landscape. We believe that every brand has a unique story to tell, and our mission is to help you tell it in the most compelling way possible.
-                  </p>
-                  <p>
-                    Founded by a team of passionate creatives and strategists, we&apos;ve grown from a small startup to a leading agency serving clients across multiple industries. Our diverse team brings together expertise in design, marketing, technology, and content creation.
-                  </p>
-                  <p>
-                    What sets us apart is our holistic approach. We don&apos;t just create beautiful designs or run campaigns—we build comprehensive digital ecosystems that work together to achieve your business goals.
-                  </p>
-                </div>
+                <p>
+                  Founded by a team of passionate creatives and strategists, we&apos;ve grown from a small startup to a leading agency serving clients across multiple industries. Our diverse team brings together expertise in design, marketing, technology, and content creation.
+                </p>
+                <p>
+                  What sets us apart is our holistic approach. We don&apos;t just create beautiful designs or run campaigns—we build comprehensive digital ecosystems that work together to achieve your business goals.
+                </p>
               </div>
-            </FadeInUp>
-            <ScaleOnScroll>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-2xl" />
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl overflow-hidden relative z-10">
-                  <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <Users className="w-10 h-10 text-primary" />
-                      </div>
-                      <h3 className="text-4xl font-bold text-foreground mb-2">50+</h3>
-                      <p className="text-muted-foreground">Team Members</p>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-2xl" />
+              <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl overflow-hidden relative z-10">
+                <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Users className="w-10 h-10 text-primary" />
                     </div>
+                    <h3 className="text-4xl font-bold text-foreground mb-2">50+</h3>
+                    <p className="text-muted-foreground">Team Members</p>
                   </div>
                 </div>
               </div>
-            </ScaleOnScroll>
+            </div>
           </div>
         </div>
       </section>
@@ -143,32 +131,28 @@ export default function AboutPage() {
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
-            <FadeInUp>
-              <div 
-                className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl p-8 md:p-12 border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-primary/30 rounded-2xl flex items-center justify-center mb-6">
-                  <Eye className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To be the most trusted digital partner for brands worldwide, pioneering innovative solutions that shape the future of digital marketing and brand communication.
-                </p>
+            <div 
+              className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl p-8 md:p-12 border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-primary/30 rounded-2xl flex items-center justify-center mb-6">
+                <Eye className="w-8 h-8 text-primary" />
               </div>
-            </FadeInUp>
-            <FadeInUp delay={0.2}>
-              <div 
-                className="bg-gradient-to-br from-accent/20 to-accent/5 rounded-3xl p-8 md:p-12 border border-accent/20 hover:shadow-lg hover:border-accent/40 transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-accent/30 rounded-2xl flex items-center justify-center mb-6">
-                  <Target className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  To empower businesses with creative digital solutions that drive growth, build meaningful connections, and create lasting impact in the digital world.
-                </p>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To be the most trusted digital partner for brands worldwide, pioneering innovative solutions that shape the future of digital marketing and brand communication.
+              </p>
+            </div>
+            <div 
+              className="bg-gradient-to-br from-accent/20 to-accent/5 rounded-3xl p-8 md:p-12 border border-accent/20 hover:shadow-lg hover:border-accent/40 transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-accent/30 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="w-8 h-8 text-accent" />
               </div>
-            </FadeInUp>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To empower businesses with creative digital solutions that drive growth, build meaningful connections, and create lasting impact in the digital world.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -177,16 +161,12 @@ export default function AboutPage() {
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <FadeInUp>
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
-                Our Values
-              </p>
-            </FadeInUp>
-            <FadeInUp delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                What Drives Us
-              </h2>
-            </FadeInUp>
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
+              Our Values
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              What Drives Us
+            </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value) => (
