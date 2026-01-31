@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, User } from "lucide-react";
+import { motion } from "framer-motion";
+import { FadeInUp } from "@/components/animations/fade-in-up";
+import { StaggerContainer } from "@/components/animations/stagger-container";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Social Nexus",
@@ -114,18 +117,28 @@ export default function BlogPage() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Blog & Insights
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Ideas That Inspire Growth
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Insights, strategies, and stories from our team of digital experts to help you stay ahead in the ever-evolving digital landscape.
-            </p>
+            <FadeInUp>
+              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+                Blog & Insights
+              </p>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+                Ideas That Inspire Growth
+              </h1>
+            </FadeInUp>
+            <FadeInUp delay={0.2}>
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                Insights, strategies, and stories from our team of digital experts to help you stay ahead in the ever-evolving digital landscape.
+              </p>
+            </FadeInUp>
           </div>
         </div>
       </section>
@@ -153,109 +166,169 @@ export default function BlogPage() {
       {/* Featured Post */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href={`/blog/${featuredPost.id}`}
-            className="group block relative overflow-hidden rounded-3xl bg-gradient-to-br border border-border hover:shadow-2xl transition-all duration-500"
-          >
-            <div className={`absolute inset-0 bg-gradient-to-br ${featuredPost.color} opacity-50 group-hover:opacity-70 transition-opacity duration-500`} />
-            <div className="relative p-8 md:p-12 lg:p-16 min-h-[400px] flex flex-col justify-end">
-              <span className="inline-block px-4 py-1.5 bg-background/80 backdrop-blur-sm rounded-full text-sm font-medium text-foreground w-fit mb-4">
-                {featuredPost.category}
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 max-w-3xl group-hover:translate-x-2 transition-transform duration-300">
-                {featuredPost.title}
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6 max-w-2xl">
-                {featuredPost.excerpt}
-              </p>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <User className="w-4 h-4" />
-                  <span>{featuredPost.author}</span>
+          <FadeInUp>
+            <Link
+              href={`/blog/${featuredPost.id}`}
+              className="group block relative overflow-hidden rounded-3xl bg-gradient-to-br border border-border hover:shadow-2xl transition-all duration-500"
+            >
+              <motion.div 
+                className={`absolute inset-0 bg-gradient-to-br ${featuredPost.color} opacity-50 group-hover:opacity-70 transition-opacity duration-500`}
+                whileHover={{ scale: 1.05 }}
+              />
+              <motion.div 
+                className="relative p-8 md:p-12 lg:p-16 min-h-[400px] flex flex-col justify-end"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span 
+                  className="inline-block px-4 py-1.5 bg-background/80 backdrop-blur-sm rounded-full text-sm font-medium text-foreground w-fit mb-4"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {featuredPost.category}
+                </motion.span>
+                <motion.h2 
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 max-w-3xl group-hover:translate-x-2 transition-transform duration-300"
+                  whileHover={{ x: 4 }}
+                >
+                  {featuredPost.title}
+                </motion.h2>
+                <p className="text-muted-foreground text-lg mb-6 max-w-2xl">
+                  {featuredPost.excerpt}
+                </p>
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                  <motion.div 
+                    className="flex items-center gap-2"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <User className="w-4 h-4" />
+                    <span>{featuredPost.author}</span>
+                  </motion.div>
+                  <span>•</span>
+                  <span>{featuredPost.date}</span>
+                  <span>•</span>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span>{featuredPost.readTime}</span>
+                  </div>
                 </div>
-                <span>•</span>
-                <span>{featuredPost.date}</span>
-                <span>•</span>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{featuredPost.readTime}</span>
-                </div>
-              </div>
-              <div className="absolute top-8 right-8 w-14 h-14 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <ArrowRight className="w-6 h-6 text-foreground" />
-              </div>
-            </div>
-          </Link>
+                <motion.div 
+                  className="absolute top-8 right-8 w-14 h-14 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  whileHover={{ scale: 1.15, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <ArrowRight className="w-6 h-6 text-foreground" />
+                </motion.div>
+              </motion.div>
+            </Link>
+          </FadeInUp>
         </div>
       </section>
 
       {/* Posts Grid */}
       <section className="py-20 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/blog/${post.id}`}
-                className="group bg-background rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300"
-              >
-                <div className={`h-48 bg-gradient-to-br ${post.color}`} />
-                <div className="p-6">
-                  <span className="inline-block px-3 py-1 bg-secondary rounded-full text-xs font-medium text-foreground mb-3">
-                    {post.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-4">
-                    <div className="flex items-center gap-2">
-                      <User className="w-3 h-3" />
-                      <span>{post.author}</span>
+          <StaggerContainer staggerDelay={0.1} delayChildren={0.1}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.map((post, index) => (
+                <motion.div
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="group bg-background rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                  >
+                    <motion.div 
+                      className={`h-48 bg-gradient-to-br ${post.color}`}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ originY: 0 }}
+                    />
+                    <div className="p-6 flex-1 flex flex-col">
+                      <motion.span 
+                        className="inline-block px-3 py-1 bg-secondary rounded-full text-xs font-medium text-foreground mb-3 w-fit"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {post.category}
+                      </motion.span>
+                      <motion.h3 
+                        className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
+                        whileHover={{ x: 4 }}
+                      >
+                        {post.title}
+                      </motion.h3>
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-4">
+                        <div className="flex items-center gap-2">
+                          <User className="w-3 h-3" />
+                          <span>{post.author}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-3 h-3" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-3 h-3" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </StaggerContainer>
 
           {/* Load More */}
           <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-colors duration-300">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full transition-colors duration-300"
+            >
               Load More Articles
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-r from-primary to-primary/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
-            Stay Updated with Our Newsletter
-          </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Get the latest insights, tips, and trends delivered straight to your inbox. Join 5,000+ marketing professionals.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-3 bg-background/20 border border-primary-foreground/30 rounded-full text-primary-foreground placeholder:text-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-accent"
-            />
-            <button
-              type="submit"
-              className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-full transition-colors duration-300"
-            >
-              Subscribe
-            </button>
-          </form>
+      <section className="py-20 lg:py-32 bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-primary-foreground/20 rounded-full opacity-10"
+        />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <FadeInUp>
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
+              Stay Updated with Our Newsletter
+            </h2>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+              Get the latest insights, tips, and trends delivered straight to your inbox. Join 5,000+ marketing professionals.
+            </p>
+          </FadeInUp>
+          <FadeInUp delay={0.2}>
+            <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+              <motion.input
+                whileFocus={{ scale: 1.05 }}
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-3 bg-background/20 border border-primary-foreground/30 rounded-full text-primary-foreground placeholder:text-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-full transition-colors duration-300"
+              >
+                Subscribe
+              </motion.button>
+            </form>
+          </FadeInUp>
         </div>
       </section>
     </div>
