@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import { Target, Eye, Users, Award, Lightbulb, Heart } from "lucide-react";
 import { motion } from "framer-motion";

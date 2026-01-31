@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, User } from "lucide-react";
