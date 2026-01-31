@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { Target, Eye, Users, Award, Lightbulb, Heart } from "lucide-react";
-import { motion } from "framer-motion";
 import { FadeInUp } from "@/components/animations/fade-in-up";
 import { ScaleOnScroll } from "@/components/animations/scale-on-scroll";
 
@@ -145,8 +144,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <FadeInUp>
-              <motion.div 
-                whileHover={{ y: -8 }}
+              <div 
                 className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl p-8 md:p-12 border border-primary/20 hover:shadow-lg hover:border-primary/40 transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-primary/30 rounded-2xl flex items-center justify-center mb-6">
@@ -156,11 +154,10 @@ export default function AboutPage() {
                 <p className="text-muted-foreground leading-relaxed">
                   To be the most trusted digital partner for brands worldwide, pioneering innovative solutions that shape the future of digital marketing and brand communication.
                 </p>
-              </motion.div>
+              </div>
             </FadeInUp>
             <FadeInUp delay={0.2}>
-              <motion.div 
-                whileHover={{ y: -8 }}
+              <div 
                 className="bg-gradient-to-br from-accent/20 to-accent/5 rounded-3xl p-8 md:p-12 border border-accent/20 hover:shadow-lg hover:border-accent/40 transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-accent/30 rounded-2xl flex items-center justify-center mb-6">
@@ -170,7 +167,7 @@ export default function AboutPage() {
                 <p className="text-muted-foreground leading-relaxed">
                   To empower businesses with creative digital solutions that drive growth, build meaningful connections, and create lasting impact in the digital world.
                 </p>
-              </motion.div>
+              </div>
             </FadeInUp>
           </div>
         </div>
@@ -192,14 +189,9 @@ export default function AboutPage() {
             </FadeInUp>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <motion.div
+            {values.map((value) => (
+              <div
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="bg-background rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary/50 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
@@ -211,7 +203,7 @@ export default function AboutPage() {
                 <p className="text-sm text-muted-foreground">
                   {value.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -233,40 +225,25 @@ export default function AboutPage() {
             </FadeInUp>
           </div>
           <div className="relative">
-            {/* Animated Timeline line */}
-            <motion.div 
+            {/* Timeline line */}
+            <div 
               className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/0 via-primary to-primary/0 -translate-x-1/2"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              viewport={{ once: true }}
-              style={{ originY: 0 }}
             />
             
             <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <motion.div
+              {timeline.map((item) => (
+                <div
                   key={item.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className="relative flex items-center"
                 >
                   {/* Dot */}
-                  <motion.div 
-                    whileInView={{ scale: [0, 1.2, 1] }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                  <div 
                     className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2 z-10 shadow-lg shadow-primary/50" 
                   />
                   
                   {/* Content */}
-                  <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
-                    <motion.div 
-                      whileHover={{ y: -4 }}
+                  <div className="ml-12 md:ml-0 md:w-1/2 md:pr-12">
+                    <div 
                       className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300"
                     >
                       <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-3">
@@ -278,9 +255,9 @@ export default function AboutPage() {
                       <p className="text-muted-foreground">
                         {item.description}
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
