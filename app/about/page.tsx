@@ -193,16 +193,12 @@ export default function AboutPage() {
       <section className="py-20 lg:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <FadeInUp>
-              <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
-                Our Journey
-              </p>
-            </FadeInUp>
-            <FadeInUp delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                Milestones
-              </h2>
-            </FadeInUp>
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
+              Our Journey
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Milestones
+            </h2>
           </div>
           <div className="relative">
             {/* Timeline line */}
