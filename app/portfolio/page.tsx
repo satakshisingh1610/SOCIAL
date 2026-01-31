@@ -159,9 +159,15 @@ export default function PortfolioPage() {
             <div className="hidden lg:flex items-center justify-center relative">
               <div className="relative w-full max-w-md">
                 {/* Main preview card */}
-                <div className="relative w-full aspect-video bg-gradient-to-br from-card to-card/50 rounded-3xl shadow-2xl border border-border overflow-hidden group hover:shadow-3xl transition-shadow duration-500">
+                <div className="relative w-full aspect-video bg-gradient-to-br from-card to-card/50 rounded-3xl shadow-2xl border border-border/60 overflow-hidden group hover:shadow-3xl transition-shadow duration-500">
+                  {/* Background image */}
+                  <img 
+                    src="/images/portfolio-work.jpg"
+                    alt="Portfolio showcase"
+                    className="absolute inset-0 w-full h-full object-cover opacity-20"
+                  />
                   {/* Screen content mockup */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-accent/10" />
                   
                   {/* Browser window styling */}
                   <div className="absolute top-4 left-6 right-6 flex gap-2">

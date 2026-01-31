@@ -74,13 +74,20 @@ export function WhyChooseUs() {
           {/* Visual */}
           <div className="relative">
             <div className="relative aspect-square max-w-lg mx-auto">
+              {/* Background image */}
+              <img 
+                src="/images/digital-growth.jpg" 
+                alt="Digital growth visualization"
+                className="absolute inset-0 w-full h-full object-cover rounded-3xl opacity-20"
+              />
+              
               {/* Background circles */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-3xl" />
               
               {/* Main card */}
-              <div className="absolute inset-8 bg-card rounded-3xl shadow-2xl border border-border flex items-center justify-center">
+              <div className="absolute inset-8 bg-card rounded-3xl shadow-2xl border border-border/60 flex items-center justify-center backdrop-blur-sm bg-card/80">
                 <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <Target className="w-10 h-10 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-2">
@@ -93,13 +100,13 @@ export function WhyChooseUs() {
               </div>
 
               {/* Floating stats */}
-              <div className="absolute top-4 left-4 bg-card rounded-2xl shadow-lg border border-border p-4">
+              <div className="absolute top-4 left-4 bg-card rounded-2xl shadow-lg border border-border/60 p-4 backdrop-blur-sm">
                 <p className="text-3xl font-bold text-primary">98%</p>
-                <p className="text-xs text-muted-foreground">Client Satisfaction</p>
+                <p className="text-xs text-muted-foreground font-medium">Client Satisfaction</p>
               </div>
-              <div className="absolute bottom-4 right-4 bg-card rounded-2xl shadow-lg border border-border p-4">
+              <div className="absolute bottom-4 right-4 bg-card rounded-2xl shadow-lg border border-border/60 p-4 backdrop-blur-sm">
                 <p className="text-3xl font-bold text-accent">3x</p>
-                <p className="text-xs text-muted-foreground">Avg. ROI Increase</p>
+                <p className="text-xs text-muted-foreground font-medium">Avg. ROI Increase</p>
               </div>
             </div>
           </div>

@@ -50,7 +50,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 lg:py-32 bg-background">
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-background via-background to-primary/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -71,21 +71,24 @@ export function ServicesSection() {
             <Link
               key={service.title}
               href={service.href}
-              className="group p-8 bg-card rounded-3xl border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300"
+              className="group p-8 bg-card rounded-3xl border border-border/60 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 relative overflow-hidden"
             >
-              <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-7 h-7" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-primary to-accent transition-opacity duration-300" />
+              <div className="relative z-10">
+                <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                  <service.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <span className="inline-flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Learn more
+                  <ArrowRight className="ml-1 w-4 h-4" />
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {service.description}
-              </p>
-              <span className="inline-flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Learn more
-                <ArrowRight className="ml-1 w-4 h-4" />
-              </span>
             </Link>
           ))}
         </div>

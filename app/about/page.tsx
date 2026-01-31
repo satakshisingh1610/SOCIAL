@@ -185,15 +185,20 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
+              <img 
+                src="/images/agency-strategy.jpg" 
+                alt="Agency strategy and collaboration"
+                className="absolute inset-0 w-full h-full object-cover rounded-3xl opacity-20"
+              />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-2xl" />
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl overflow-hidden relative z-10">
-                <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl overflow-hidden relative z-10 shadow-2xl">
+                <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border/60 flex items-center justify-center backdrop-blur-sm">
                   <div className="text-center p-8">
-                    <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <Users className="w-10 h-10 text-primary" />
                     </div>
                     <h3 className="text-4xl font-bold text-foreground mb-2">50+</h3>
-                    <p className="text-muted-foreground">Team Members</p>
+                    <p className="text-muted-foreground font-medium">Team Members</p>
                   </div>
                 </div>
               </div>

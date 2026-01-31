@@ -13,7 +13,7 @@ const clients = [
 
 export function ClientLogos() {
   return (
-    <section className="py-16 bg-card border-y border-border">
+    <section className="py-16 bg-gradient-to-r from-card via-background to-card border-y border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-sm font-medium text-muted-foreground mb-8 uppercase tracking-wider">
           Trusted by Leading Brands
@@ -21,17 +21,17 @@ export function ClientLogos() {
         
         <div className="relative overflow-hidden">
           {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-card to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-card to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-card via-card to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-card via-card to-transparent z-10" />
           
           {/* Scrolling logos */}
           <div className="flex gap-12 animate-marquee">
             {[...clients, ...clients].map((client, index) => (
               <div
                 key={`${client}-${index}`}
-                className="flex items-center justify-center min-w-[160px] h-16 px-6 bg-background rounded-xl border border-border"
+                className="flex items-center justify-center min-w-[160px] h-16 px-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/40 hover:border-primary/50 hover:bg-background/80 hover:shadow-md transition-all duration-300 group"
               >
-                <span className="text-lg font-bold text-muted-foreground/60 hover:text-foreground transition-colors duration-300">
+                <span className="text-lg font-bold text-muted-foreground/70 group-hover:text-foreground transition-colors duration-300">
                   {client}
                 </span>
               </div>

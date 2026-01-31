@@ -306,17 +306,22 @@ export default function ProcessPage() {
                 <div
                   className={`transition-all duration-300 hover:scale-105 ${index % 2 === 1 ? "lg:order-1" : ""}`}
                 >
-                  <div className={`aspect-square rounded-3xl bg-gradient-to-br ${step.color} p-8 relative overflow-hidden group`}>
-                    <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center group-hover:shadow-2xl transition-all duration-300">
+                  <div className={`aspect-square rounded-3xl bg-gradient-to-br ${step.color} p-8 relative overflow-hidden group shadow-xl`}>
+                    <img 
+                      src="/images/process-pipeline.jpg"
+                      alt="Process pipeline"
+                      className="absolute inset-0 w-full h-full object-cover opacity-15"
+                    />
+                    <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border/60 flex items-center justify-center group-hover:shadow-2xl transition-all duration-300 backdrop-blur-sm">
                       <div className="text-center">
-                        <step.icon className="w-20 h-20 text-primary/30 mx-auto mb-4" />
+                        <step.icon className="w-20 h-20 text-primary/40 mx-auto mb-4" />
                         <p className="text-4xl font-bold text-foreground">
                           Step {step.number}
                         </p>
                       </div>
                     </div>
-                    <div className="absolute top-4 right-4 w-20 h-20 bg-accent/30 rounded-full blur-xl" />
-                    <div className="absolute bottom-4 left-4 w-28 h-28 bg-primary/30 rounded-full blur-xl" />
+                    <div className="absolute top-4 right-4 w-20 h-20 bg-accent/30 rounded-full blur-xl opacity-50" />
+                    <div className="absolute bottom-4 left-4 w-28 h-28 bg-primary/30 rounded-full blur-xl opacity-50" />
                   </div>
                 </div>
               </div>

@@ -191,8 +191,14 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 lg:py-32 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-32 bg-gradient-to-b from-background via-background to-primary/5 relative overflow-hidden">
+        {/* Background decoration */}
+        <img 
+          src="/images/contact-illustration.jpg"
+          alt="Contact illustration"
+          className="absolute inset-0 w-full h-full object-cover opacity-5"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Contact Form */}
             <div>

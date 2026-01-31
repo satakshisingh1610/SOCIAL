@@ -240,10 +240,15 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href={`/blog/${featuredPost.id}`}
-            className="group block relative overflow-hidden rounded-3xl bg-gradient-to-br border border-border hover:shadow-2xl transition-all duration-500"
+            className="group block relative overflow-hidden rounded-3xl bg-gradient-to-br border border-border/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
           >
+            <img 
+              src="/images/blog-featured.jpg"
+              alt="Featured blog post"
+              className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-500"
+            />
             <div 
-              className={`absolute inset-0 bg-gradient-to-br ${featuredPost.color} opacity-50 group-hover:opacity-70 transition-opacity duration-500`}
+              className={`absolute inset-0 bg-gradient-to-br ${featuredPost.color} opacity-50 group-hover:opacity-60 transition-opacity duration-500`}
             />
             <div className="relative p-8 md:p-12 lg:p-16 min-h-[400px] flex flex-col justify-end hover:scale-105 transition-transform duration-300" style={{ transformOrigin: 'center' }}>
               <span className="inline-block px-4 py-1.5 bg-background/80 backdrop-blur-sm rounded-full text-sm font-medium text-foreground w-fit mb-4 hover:scale-105 transition-transform duration-300">

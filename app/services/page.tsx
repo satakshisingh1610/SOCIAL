@@ -300,12 +300,17 @@ export default function ServicesPage() {
                 <div
                   className={`transition-all duration-300 hover:scale-105 ${index % 2 === 1 ? "lg:order-1" : ""}`}
                 >
-                  <div className={`aspect-square rounded-3xl bg-gradient-to-br ${service.color} p-8 relative overflow-hidden group`}>
-                    <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border flex items-center justify-center group-hover:shadow-2xl transition-all duration-300">
-                      <service.icon className="w-24 h-24 text-primary/30" />
+                  <div className={`aspect-square rounded-3xl bg-gradient-to-br ${service.color} p-8 relative overflow-hidden group shadow-xl`}>
+                    <img 
+                      src={index === 0 ? "/images/service-branding.jpg" : index === 1 ? "/images/service-social-media.jpg" : "/images/service-web-dev.jpg"}
+                      alt={service.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-20"
+                    />
+                    <div className="absolute inset-8 bg-card rounded-2xl shadow-xl border border-border/60 flex items-center justify-center group-hover:shadow-2xl transition-all duration-300 backdrop-blur-sm">
+                      <service.icon className="w-24 h-24 text-primary/40" />
                     </div>
-                    <div className="absolute top-4 right-4 w-16 h-16 bg-accent/30 rounded-full blur-xl" />
-                    <div className="absolute bottom-4 left-4 w-24 h-24 bg-primary/30 rounded-full blur-xl" />
+                    <div className="absolute top-4 right-4 w-16 h-16 bg-accent/30 rounded-full blur-xl opacity-50" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 bg-primary/30 rounded-full blur-xl opacity-50" />
                   </div>
                 </div>
               </div>
